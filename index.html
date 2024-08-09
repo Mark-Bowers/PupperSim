@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PupperSim</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #content {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="content">
+    <h1>Welcome to PupperSim</h1>
+    <p>Loading content...</p>
+</div>
+
+<script>
+    function checkCompatibility() {
+        // Check for WebGL support
+        if (!window.WebGLRenderingContext) {
+            return "Your device does not support WebGL.";
+        }
+
+        // Check for WASM support
+        if (!('WebAssembly' in window)) {
+            return "Your browser does not support WebAssembly.";
+        }
+
+        // Check for memory availability (this is a rough estimation)
+        var isLowMemoryDevice = navigator.deviceMemory && navigator.deviceMemory <= 1; // 1 GB or less
+        if (navigator.deviceMemory) {
+            return "Available memory: " + navigator.deviceMemory + "GB";
+        }
+        
+        return null; // No issues detected
+    }
+
+    function notifyUserIfIncompatible() {
+        var compatibilityMessage = checkCompatibility();
+        if (compatibilityMessage) {
+            document.getElementById('content').innerHTML = `
+                <h1>PupperSim</h1>
+                <p>${compatibilityMessage}</p>
+            `;
+        } else {
+            // Load your WebAssembly module and other resources here
+            loadWebAssemblyModule();
+        }
+    }
+
+    function loadWebAssemblyModule() {
+        // Placeholder function to load your Emscripten-based module
+        // Replace this with actual code to load and initialize your WASM module
+        document.getElementById('content').innerHTML = `
+            <h1>PupperSim</h1>
+            <p>Coming soon!</p>
+        `;
+    }
+
+    window.onload = notifyUserIfIncompatible;
+</script>
+
+</body>
+</html>
