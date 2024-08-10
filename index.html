@@ -7,6 +7,13 @@
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,6 +24,10 @@
             align-items: center;
             height: 100vh;
             background-color: #f0f0f0;
+        }
+        #content img {
+            max-width: 100%;
+            height: auto;
         }
         #content {
             text-align: center;
@@ -29,6 +40,9 @@
 <div id="content">
     <h1>Welcome to PupperSim</h1>
     <p>Loading content...</p>
+    <img src="android-chrome-512x512.png" alt="PupperSim Icon">
+</div>
+<div id="content">
 </div>
 
 <script>
@@ -58,10 +72,11 @@
             document.getElementById('content').innerHTML = `
                 <h1>PupperSim</h1>
                 <p>${compatibilityMessage}</p>
+                <img src="android-chrome-512x512.png" alt="PupperSim Logo">
             `;
         } else {
             // Load your WebAssembly module and other resources here
-            loadWebAssemblyModule();
+            // loadWebAssemblyModule();
         }
     }
 
@@ -70,7 +85,7 @@
         // Replace this with actual code to load and initialize your WASM module
         document.getElementById('content').innerHTML = `
             <h1>PupperSim</h1>
-            <p>Coming soon!</p>
+            <p>New favicon!</p>
         `;
     }
 
