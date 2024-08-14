@@ -9,11 +9,11 @@ function predictWord() {
    // Find the most probable word.
    scores.sort((s1, s2) => s2.score - s1.score);
    document.querySelector('#console').textContent = scores[0].word + ": " + scores[0].score;
- }, {probabilityThreshold: 0.95});
+ }, {probabilityThreshold: 0.98, invokeCallbackOnNoiseAndUnknown: true});
 }
 
 async function app() {
- recognizer = speechCommands.create('BROWSER_FFT');
+ recognizer = speechCommands.create('BROWSER_FFT', 'directional4w'));
  await recognizer.ensureModelLoaded();
  predictWord();
 }
