@@ -13,7 +13,7 @@ function predictWord() {
 }
 
 async function app() {
- recognizer = speechCommands.create('BROWSER_FFT', 'directional4w'));
+ recognizer = speechCommands.create('BROWSER_FFT', 'directional4w');
  await recognizer.ensureModelLoaded();
  predictWord();
 }
