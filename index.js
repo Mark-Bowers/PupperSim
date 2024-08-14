@@ -8,7 +8,7 @@ function predictWord() {
    scores = Array.from(scores).map((s, i) => ({score: s, word: words[i]}));
    // Find the most probable word.
    scores.sort((s1, s2) => s2.score - s1.score);
-   document.querySelector('#console').textContent = scores[0].word;
+   document.querySelector('#console').textContent = scores[0].word + ": " + scores[0].score;
  }, {probabilityThreshold: 0.95});
 }
 
